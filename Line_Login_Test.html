@@ -27,7 +27,7 @@ Hello Line~
 							}
 							else{ 
 								alert("userId: \n\r "+_context.userId);
-								//Submit(_context.userId);
+								Submit(_context.userId);
 							}
 						}
 						else {
@@ -45,6 +45,7 @@ Hello Line~
         }
     }
     function Submit(userId) {
+	    alert("go Submit~")
         var form = document.createElement("form");
         form.method = "POST";
         form.action = "https://www.nahm.hyweb.com.tw/sp-lineMember-login-1.html";

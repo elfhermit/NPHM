@@ -24,7 +24,7 @@ Hello Line~
 								alert("uID: \n\r "+_context.userId);
 								alert(UToken);
 								alert(liff.getOS());
-								//Submit_external( UToken, _context.userId );
+								Submit_external( UToken, _context.userId );
 							}
 							else{ 
 								alert("userId: \n\r "+_context.userId);
@@ -61,25 +61,27 @@ Hello Line~
     }
 	
 	function Submit_external(uToken, uID) {
+		alert("go external browse~")
+		
 		let formData = new FormData();
 		formData.append("action", "InsertUIDMapping" );
 		formData.append("uToken", uToken );
 		formData.append("uID", uID);
 		
-		fetch("/sp-opre-service-1.html", {
+		fetch("https://www.nahm.hyweb.com.tw/sp-opre-service-1.html", {
 			method: "POST",
 			body: formData
 		}).then((response) => {
 			return response.json();
 		}).then((jsonData) => {
 			//console.log(jsonData);
-			//alert(JSON.stringify(jsonData));
+			alert(JSON.stringify(jsonData));
 			
 			liff.openWindow({
-				url: "<%=Callback_URL%>?uToken=" + uToken,
+				url: "https://www.nahm.hyweb.com.tw/sp-lineMember-login-1.html?uToken=" + uToken,
 				external: true
 			})
-			//document.location.href = "<%=Callback_URL%>?uToken=" + uToken ;
+			//document.location.href = "https://www.nahm.hyweb.com.tw/sp-lineMember-login-1.html?uToken=" + uToken ;
 		});
 	}
 	

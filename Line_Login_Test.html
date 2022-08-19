@@ -23,10 +23,12 @@ Hello
                     let _context = liff.getContext();
                     if (_context.userId) {
 						if (liff.getOS() == "android" && (liff.isInClient() || (navigator.userAgent.indexOf("Line") > -1)) ) {
-							Submit_external( UToken, _context.userId );
+							alert("Hi: "+_context.userId);
+							//Submit_external( UToken, _context.userId );
 						}
 						else{ 
-							Submit(_context.userId);
+							alert("Hi: "+_context.userId);
+							//Submit(_context.userId);
 						}
                     }
                     else {

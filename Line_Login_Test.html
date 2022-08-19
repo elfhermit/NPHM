@@ -3,47 +3,49 @@
 Hello Line~
 <script type="text/javascript">
 	$(function () {
-		//document.location.href = "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=<%=Channel_ID%>&redirect_uri=<%=Callback_URL%>&state=<%=state%>&scope=openid?openExternalBrowser=1";
-		//document.onreadystatechange = subSomething;
-		
-		 subSomething();
+		subSomething();
 	});
 	
-    function subSomething() {
+	function subSomething() {
 		if (document.readyState == "complete") {
 			let UToken = Math.random().toString(36).substr(2) + Date.now().toString(36).substr(4);
 			
 			liff
-				.init({ liffId:"1657399004-vy2mYprY", })
-				.then(() => {
-					liff.ready.then(() => {
-						let _context = liff.getContext();
-						if (_context.userId) {
-							if (liff.getOS() == "android" && (liff.isInClient() || (navigator.userAgent.indexOf("Line") > -1)) ) {
-								alert("uID: \n\r "+_context.userId);
-								alert(UToken);
-								alert(liff.getOS());
-								
-								liff.openWindow({
-									url: "https://elfhermit.github.io/NPHM/404?uToken=" + uToken,
-									external: true
-								})
-							}
-							else{ 
-								alert("userId: \n\r "+_context.userId);
-								//Submit(_context.userId);
-							}
+			.init({ liffId:"1657399004-vy2mYprY", })
+			.then(() => {
+			    if (!liff.isInClient()) {
+					alert('無法執行isInClient');
+				} else {
+					liff.closeWindow();
+				}
+				
+				liff.ready.then(() => {
+					let _context = liff.getContext();
+					if (_context.userId) {
+						if (liff.getOS() == "android" && (liff.isInClient() || (navigator.userAgent.indexOf("Line") > -1)) ) {
+									alert(_context.userId);
+									alert(UToken);
+									
+									liff.openWindow({
+										url: "https://elfhermit.github.io/NPHM/404?uToken=" + uToken,
+										external: true
+									})
 						}
-						else {
-							liff.login();
+						else{ // not use smartphne
+							alert("userId: \n\r "+_context.userId);
+							//Submit(_context.userId);
 						}
+					}
+					else {
+						liff.login();
+					}
                     	//console.log(_context);
                     	//console.log('1');
                     	//liff.login({});
-					});
+				});
 			})
 			.catch((err) => {
-                //console.log(err.code, err.message);
+				//console.log(err.code, err.message);
 				alert(err.code, err.message);
             });
         }

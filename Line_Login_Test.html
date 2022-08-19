@@ -74,7 +74,9 @@ Hello Line~
 		}).then((response) => {
 			alert("1")
 			return response.json();
-		}).then((jsonData) => {
+		})
+		.catch(error => alert('Error:'+ error))
+		.then((jsonData) => {
 			//console.log(jsonData);
 			alert("2")
 			alert(JSON.stringify(jsonData));

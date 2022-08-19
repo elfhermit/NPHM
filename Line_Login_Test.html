@@ -72,9 +72,11 @@ Hello Line~
 			method: "POST",
 			body: formData
 		}).then((response) => {
+			alert("1")
 			return response.json();
 		}).then((jsonData) => {
 			//console.log(jsonData);
+			alert("2")
 			alert(JSON.stringify(jsonData));
 			
 			liff.openWindow({
@@ -83,6 +85,7 @@ Hello Line~
 			})
 			//document.location.href = "https://www.nahm.hyweb.com.tw/sp-lineMember-login-1.html?uToken=" + uToken ;
 		});
+		alert("end")
 	}
 	
 

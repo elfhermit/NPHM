@@ -15,9 +15,10 @@ Hello Line~
 			.then(() => {
 			    if (!liff.isInClient()) {
 					alert('無法執行isInClient');
-				} else {
+				} 
+				/*else {
 					liff.closeWindow();
-				}
+				}*/
 				
 				liff.ready.then(() => {
 					let _context = liff.getContext();

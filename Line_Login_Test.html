@@ -1,37 +1,30 @@
 <script type="text/javascript" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
-Hello
+Hello Line~
 <script type="text/javascript">
-  /*  $(function () {
-        //document.location.href = "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=<%=Channel_ID%>&redirect_uri=<%=Callback_URL%>&state=<%=state%>&scope=openid?openExternalBrowser=1";
-        
-        document.onreadystatechange = subSomething;
-    });*/
+	
     function subSomething() {
         if (document.readyState == "complete") {
-			/*
-            if (liff.getOS() == "android" && (liff.isInClient() || (navigator.userAgent.indexOf("Line") > -1)) ) {
-                document.location.href = "<%=Liff_URL%>";
-            }
-			*/
-
-			let UToken = Math.random().toString(36).substr(2) + Date.now().toString(36).substr(4);
+	let UToken = Math.random().toString(36).substr(2) + Date.now().toString(36).substr(4);
 			
             liff
             .init({ liffId:"1657399004-vy2mYprY", })
             .then(() => {
-                liff.ready.then(() => {
+		liff.ready.then(() => {
                     let _context = liff.getContext();
+			alert(_context);
+			
                     if (_context.userId) {
-						if (liff.getOS() == "android" && (liff.isInClient() || (navigator.userAgent.indexOf("Line") > -1)) ) {
-							alert("Hi: "+_context.userId);
-							//Submit_external( UToken, _context.userId );
-						}
-						else{ 
-							alert("Hi: "+_context.userId);
-							//Submit(_context.userId);
-						}
+			if (liff.getOS() == "android" && (liff.isInClient() || (navigator.userAgent.indexOf("Line") > -1)) ) {
+				alert("Hi: "+_context.userId);
+				//Submit_external( UToken, _context.userId );
+			}
+		   	else{ 
+				alert("Hi: "+_context.userId);
+				//Submit(_context.userId);
+			}
                     }
                     else {
+			    alert("liff.login~ ");
                         liff.login();
                     }
                     //console.log(_context);
@@ -40,7 +33,8 @@ Hello
                 });
             })
             .catch((err) => {
-                console.log(err.code, err.message);
+                //console.log(err.code, err.message);
+		alert(err.code, err.message);
             });
         }
     }

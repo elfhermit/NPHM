@@ -7,44 +7,41 @@ Hello Line~
 		//document.onreadystatechange = subSomething;
 		
 		 subSomething();
-	    console.log("Gogo~")
 	});
 	
     function subSomething() {
-	    console.log("do sth~")
-		alert("do sth~")
-        if (document.readyState == "complete") {
-	let UToken = Math.random().toString(36).substr(2) + Date.now().toString(36).substr(4);
+		if (document.readyState == "complete") {
+			let UToken = Math.random().toString(36).substr(2) + Date.now().toString(36).substr(4);
 			
-            liff
-            .init({ liffId:"1657399004-vy2mYprY", })
-            .then(() => {
-		liff.ready.then(() => {
-                    let _context = liff.getContext();
-			alert(_context);
-			
-                    if (_context.userId) {
-			if (liff.getOS() == "android" && (liff.isInClient() || (navigator.userAgent.indexOf("Line") > -1)) ) {
-				alert("Hi: "+_context.userId);
-				//Submit_external( UToken, _context.userId );
-			}
-		   	else{ 
-				alert("Hi: "+_context.userId);
-				//Submit(_context.userId);
-			}
-                    }
-                    else {
-			    alert("liff.login~ ");
-                        liff.login();
-                    }
-                    //console.log(_context);
-                    //console.log('1');
-                    //liff.login({});
-                });
-            })
-            .catch((err) => {
+			liff
+				.init({ liffId:"1657399004-vy2mYprY", })
+				.then(() => {
+					liff.ready.then(() => {
+						let _context = liff.getContext();
+						alert(_context);
+						if (_context.userId) {
+							if (liff.getOS() == "android" && (liff.isInClient() || (navigator.userAgent.indexOf("Line") > -1)) ) {
+								alert("uID: \n\r "+_context.userId);
+								alert(UToken);
+								alert(liff.getOS());
+								//Submit_external( UToken, _context.userId );
+							}
+							else{ 
+								alert("userId: \n\r "+_context.userId);
+								//Submit(_context.userId);
+							}
+						}
+						else {
+							liff.login();
+						}
+                    	//console.log(_context);
+                    	//console.log('1');
+                    	//liff.login({});
+					});
+			})
+			.catch((err) => {
                 //console.log(err.code, err.message);
-		alert(err.code, err.message);
+				alert(err.code, err.message);
             });
         }
     }

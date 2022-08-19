@@ -18,7 +18,6 @@ Hello Line~
 				.then(() => {
 					liff.ready.then(() => {
 						let _context = liff.getContext();
-						alert(_context);
 						if (_context.userId) {
 							if (liff.getOS() == "android" && (liff.isInClient() || (navigator.userAgent.indexOf("Line") > -1)) ) {
 								alert("uID: \n\r "+_context.userId);
@@ -48,7 +47,7 @@ Hello Line~
     function Submit(userId) {
         var form = document.createElement("form");
         form.method = "POST";
-        form.action = "/sp-lineMember-login-1.html";
+        form.action = "https://www.nahm.hyweb.com.tw/sp-lineMember-login-1.html";
 
         var element = document.createElement("input");
         element.type = "hidden";

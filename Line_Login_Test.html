@@ -1,6 +1,11 @@
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 Hello Line~
 <script type="text/javascript">
+	$(function () {
+		//document.location.href = "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=<%=Channel_ID%>&redirect_uri=<%=Callback_URL%>&state=<%=state%>&scope=openid?openExternalBrowser=1";
+		document.onreadystatechange = subSomething;
+	});
 	
     function subSomething() {
         if (document.readyState == "complete") {

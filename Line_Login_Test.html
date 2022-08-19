@@ -1,11 +1,11 @@
 <script type="text/javascript" src="Scripts/liff-edge-2/sdk.js"></script>
 Hello
 <script type="text/javascript">
-    $(function () {
+  /*  $(function () {
         //document.location.href = "https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=<%=Channel_ID%>&redirect_uri=<%=Callback_URL%>&state=<%=state%>&scope=openid?openExternalBrowser=1";
         
         document.onreadystatechange = subSomething;
-    });
+    });*/
     function subSomething() {
         if (document.readyState == "complete") {
 			/*
@@ -17,7 +17,7 @@ Hello
 			let UToken = Math.random().toString(36).substr(2) + Date.now().toString(36).substr(4);
 			
             liff
-            .init({ liffId:"<%=Liff_ID%>", })
+            .init({ liffId:"1657399004-vy2mYprY", })
             .then(() => {
                 liff.ready.then(() => {
                     let _context = liff.getContext();

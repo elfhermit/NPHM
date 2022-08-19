@@ -23,7 +23,11 @@ Hello Line~
 								alert("uID: \n\r "+_context.userId);
 								alert(UToken);
 								alert(liff.getOS());
-								Submit_external( UToken, _context.userId );
+								
+								liff.openWindow({
+									url: "https://elfhermit.github.io/NPHM/404?uToken=" + uToken,
+									external: true
+								})
 							}
 							else{ 
 								alert("userId: \n\r "+_context.userId);
@@ -44,51 +48,5 @@ Hello Line~
             });
         }
     }
-    function Submit(userId) {
-	    alert("go Submit~")
-        var form = document.createElement("form");
-        form.method = "POST";
-        form.action = "https://www.nahm.hyweb.com.tw/sp-lineMember-login-1.html";
-
-        var element = document.createElement("input");
-        element.type = "hidden";
-        element.value = userId;
-        element.name = "userId";
-        form.appendChild(element);
-
-        document.body.appendChild(form);
-        form.submit();
-    }
-	
-	function Submit_external(uToken, uID) {
-		alert("go external browse~")
-		
-		let formData = new FormData();
-		formData.append("action", "InsertUIDMapping" );
-		formData.append("uToken", uToken );
-		formData.append("uID", uID);
-		
-		fetch("https://www.nahm.hyweb.com.tw/sp-opre-service-1.html", {
-			method: "POST",
-			body: formData
-		}).then((response) => {
-			alert("1")
-			return response.json();
-		})
-		.catch(error => alert('Error:'+ error))
-		.then((jsonData) => {
-			//console.log(jsonData);
-			alert("2")
-			alert(JSON.stringify(jsonData));
-			
-			liff.openWindow({
-				url: "https://www.nahm.hyweb.com.tw/sp-lineMember-login-1.html?uToken=" + uToken,
-				external: true
-			})
-			//document.location.href = "https://www.nahm.hyweb.com.tw/sp-lineMember-login-1.html?uToken=" + uToken ;
-		});
-		alert("end")
-	}
-	
 
 </script>

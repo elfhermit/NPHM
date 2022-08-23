@@ -1,0 +1,18 @@
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+<script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+Hello Line~ Test JS Dom ~
+<script type="text/javascript">
+
+// alternative to load event
+    $(function () {
+        //document.onreadystatechange = subSomething;
+        document.onreadystatechange = function () {
+            if (document.readyState == "complete") {
+                alert("hello")
+            }
+        });  // end of document
+    });
+    
+</script>

@@ -15,7 +15,34 @@ Hello Line~ Test JS Dom ~
     function subSomething() {
         console.log("Is complete?")
         if (document.readyState == "complete") {
-            alert("hello");
+            
+            let UToken = Math.random().toString(36).substr(2) + Date.now().toString(36).substr(4);
+            
+            liff
+            .init({ liffId:"1657399004-vy2mYprY", })
+            .then(() => {
+                liff.ready.then(() => {
+                    let _context = liff.getContext();
+                    if (_context.userId) {
+						if (liff.getOS() == "android" && (liff.isInClient() || (navigator.userAgent.indexOf("Line") > -1)) ) {
+							alert("hello");
+						}
+						else{ 
+							alert(_context.userId);
+						}
+                    }
+                    else {
+                        alert("login");
+                        liff.login();
+                    }
+                    //console.log(_context);
+                    //console.log('1');
+                    //liff.login({});
+                });
+            })
+            .catch((err) => {
+                console.log(err.code, err.message);
+            });
         }
     }    
 </script>

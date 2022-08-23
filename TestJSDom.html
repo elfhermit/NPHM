@@ -7,8 +7,10 @@ Hello Line~ Test JS Dom ~
 
 // alternative to load event
     $(function () {
+        console.log("hello d ready~~")
         //document.onreadystatechange = subSomething;
         document.onreadystatechange = function () {
+            console.log("Is complete?")
             if (document.readyState == "complete") {
                 alert("hello");
             }

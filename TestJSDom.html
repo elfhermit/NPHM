@@ -8,10 +8,11 @@ Hello Line~ Test JS Dom ~
 // alternative to load event
     $(function () {
         var vConsole = new window.VConsole();
+		console.log("hello 1: " + document.readyState);
         console.log("hello d ready~~");
         document.onreadystatechange = subSomething;
 		
-		console.log("hello: " + document.readyState);
+		console.log("hello 2: " + document.readyState);
     });
     
     function subSomething() {

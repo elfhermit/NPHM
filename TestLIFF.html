@@ -1,0 +1,59 @@
+<script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+
+<script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+Hello Line~ Test JS Dom ~
+<script type="text/javascript">
+    
+    document.addEventListener("DOMContentLoaded", function(event) { 
+        //do work
+        console.log("do work~~");
+        
+        liff
+        .init({ liffId:"1657399004-vy2mYprY", })
+        .then(() => {
+            liff.ready.then(() => {
+                let _context = liff.getContext();
+                if (_context.userId) {
+                    if (liff.getOS() == "android" && (liff.isInClient() || (navigator.userAgent.indexOf("Line") > -1)) ) {
+                        alert("hello");
+                    }
+                    else{ 
+                        alert(_context.userId);
+                    }
+                }
+                else {
+                    alert("login");
+                    liff.login();
+                }
+                
+                if (liff.isApiAvailable('shareTargetPicker')) {
+                    liff.shareTargetPicker([{
+                        type: "text",
+                        text: message
+                    }])
+                    .then(
+                        alert("ShareTargetPicker was launched")
+                    ).catch(function(res) {
+                        alert("Failed to launch ShareTargetPicker")
+                    })
+                } 
+                else {
+                    alert("你的 LINE App 暫時不支援 Share Target Picker ，將開始外部瀏覽器。")
+                    liff.openWindow({
+                        url: "https://elfhermit.github.io/NPHM/404?id=" + liff.getOS(),
+                        external: true
+                    });
+                }
+            });
+        }); // End of LIFF
+    })
+    .catch((err) => {
+        console.log(err.code, err.message);
+    });
+	/*
+    $(function () {
+
+    });		
+    */   
+</script>

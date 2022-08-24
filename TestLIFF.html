@@ -35,11 +35,11 @@ Test LIFF API ~~
 
                 alert("Line ver. : " +liff.getLineVersion());
 
-                // shareTargetPicker
+                // shareTargetPicker  // LINE 10.3.0-10.10.0   = =||我手機根本不能使用此api
                 if (liff.isApiAvailable('shareTargetPicker')) {
                     liff.shareTargetPicker([{
                         type: "text",
-                        text: message
+                        text: 'Hello, World!'
                     }])
                     .then(
                         alert("ShareTargetPicker was launched")

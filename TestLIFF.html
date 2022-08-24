@@ -2,10 +2,15 @@
 <script type="text/javascript" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
 
 <script src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
-Hello Line~ Test JS Dom ~
+Hello Line~ 
+Test LIFF API ~~
+
 <script type="text/javascript">
     
     document.addEventListener("DOMContentLoaded", function(event) { 
+
+        var vConsole = new window.VConsole();
+
         //do work
         console.log("do work~~");
         
@@ -13,6 +18,7 @@ Hello Line~ Test JS Dom ~
         .init({ liffId:"1657399004-v5pkXyQX", })
         .then(() => {
             liff.ready.then(() => {
+                /*
                 let _context = liff.getContext();
                 if (_context.userId) {
                     if (liff.getOS() == "android" && (liff.isInClient() || (navigator.userAgent.indexOf("Line") > -1)) ) {
@@ -25,8 +31,9 @@ Hello Line~ Test JS Dom ~
                 else {
                     alert("login");
                     liff.login();
-                }
-                
+                }*/
+
+                // shareTargetPicker
                 if (liff.isApiAvailable('shareTargetPicker')) {
                     liff.shareTargetPicker([{
                         type: "text",
@@ -45,11 +52,12 @@ Hello Line~ Test JS Dom ~
                         external: true
                     });
                 }
+                
             });
-        }); // End of LIFF
-    })
-    .catch((err) => {
-        console.log(err.code, err.message);
+        }) // End of LIFF    
+        .catch((err) => {
+            console.log(err.code, err.message);
+        });
     });
 	/*
     $(function () {

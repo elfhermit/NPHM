@@ -6,6 +6,12 @@ Hello Line~ Test JS Dom ~
 <script type="text/javascript">
 
 // alternative to load event
+		document.addEventListener("DOMContentLoaded", function(event) { 
+				//do work
+				console.log("do work~~");
+				subSomething();
+		});
+	/*
     $(function () {
 		var vConsole = new window.VConsole();
 		console.log("hello 1: " + document.readyState);
@@ -14,7 +20,7 @@ Hello Line~ Test JS Dom ~
 		subSomething();
 		console.log("hello 2: " + document.readyState);
     });
-    
+    */
     function subSomething() {
         console.log("Is complete?");
         if (document.readyState == "complete") {

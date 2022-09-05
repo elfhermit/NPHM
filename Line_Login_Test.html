@@ -8,14 +8,9 @@ Hello Line~
 		// VConsole will be exported to `window.VConsole` by default.
   		var vConsole = new window.VConsole();
 		console.log("Hi~");
-		// subSomething();
-		document.onreadystatechange = subSomething;
-		console.log("Hi 2~");
-	});
-	
-	function subSomething() {
-		if (document.readyState == "complete") {
-			let UToken = Math.random().toString(36).substr(2) + Date.now().toString(36).substr(4);
+		
+		
+					let UToken = Math.random().toString(36).substr(2) + Date.now().toString(36).substr(4);
 			
 			liff
 			.init({ liffId:"1657399004-vy2mYprY", })
@@ -56,9 +51,8 @@ Hello Line~
 				//console.log(err.code, err.message);
 				alert(err.code, err.message);
             });
-        }
-    }
-
+	});
+	
 function Submit_external(uToken, uID) {
 	let formData = new FormData();
 	formData.append("action", "InsertUIDMapping" );

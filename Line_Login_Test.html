@@ -8,7 +8,8 @@ Hello Line~
 		// VConsole will be exported to `window.VConsole` by default.
   		var vConsole = new window.VConsole();
 		console.log("Hi~");
-		subSomething();
+		// subSomething();
+		document.onreadystatechange = subSomething;
 		console.log("Hi 2~");
 	});
 	

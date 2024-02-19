@@ -33,11 +33,8 @@
     }
   });
 
-  const config = {
-  type: 'doughnut',
-  data: data,
-  plugins: [plugin],
-};
+  
+  //---------------------------------------------------------------
 const data = {
   labels: [
     'Red',
@@ -73,6 +70,13 @@ const plugin = {
       image.onload = () => chart.draw();
     }
   }
+};
+
+
+const config = {
+  type: 'doughnut',
+  data: data,
+  plugins: [plugin],
 };
 
 </script>

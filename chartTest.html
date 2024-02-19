@@ -84,6 +84,8 @@
     }
   });
 
+  /* // ref https://stackoverflow.com/questions/45980436/chart-js-link-to-other-page-when-click-on-specific-section-in-chart
+  //-- this is for chartjs ver-2
   canvasP.onclick = function(e) {
     var slice = myPieChart.getElementAtEvent(e);
     if (!slice.length) return; // return if not clicked on slice
@@ -100,6 +102,23 @@
           break;
         // add rests ...
     }
-  }
+  }*/
+  canvasP.onclick = function(e) {
+   var slice = myPieChart.getElementsAtEventForMode(e, 'nearest', {intersect: true}, true);
+   if (!slice.length) return; // return if not clicked on slice
+   var label = myPieChart.data.labels[slice[0].index];
+   switch (label) {
+      // add case for each label/slice
+      case 'Värde 5':
+        alert('clicked on slice 5');
+        window.open('https://gemini.google.com/app');
+        break;
+      case 'Värde 6':
+        alert('clicked on slice 6');
+        window.open('https://markdown.tw/#philosophy');
+        break;
+      // add rests ...
+   }
+}
 
 </script>
